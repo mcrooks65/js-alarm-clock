@@ -12,4 +12,12 @@ var showCurrentTime = function()
 
     clock.innerText = clockTime;
 }
-showCurrentTime();
+
+var updateTime = function() 
+{
+    var oneSecond = 1000;
+    setInterval( updateTime, oneSecond);
+    showCurrentTime();
+}
+updateTime();
+
