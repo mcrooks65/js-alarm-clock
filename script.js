@@ -5,7 +5,7 @@ var showCurrentTime = function()
     var currentTime = new Date();
 
     var hours = currentTime.getHours();
-    
+
     var minutes = currentTime.getMinutes();
     if (minutes < 10)
     {
@@ -21,13 +21,24 @@ var showCurrentTime = function()
     var clockTime = hours + ':' + minutes + ':' + seconds;
 
     clock.innerText = clockTime;
+    // clock.innerText = currentTime.toUTCString();
 }
 
-var updateTime = function() 
-{
-    var oneSecond = 1000;
-    setInterval( updateTime, oneSecond);
-    showCurrentTime();
-}
-updateTime();
+var start = new Date();
+    
+setInterval(function () {
+    showCurrentTime((new Date() - start) % 1000)
+}, 1000);
 
+document.onload = showCurrentTime();
+
+
+// // Alarm time selector
+// var alarmTimeSelector =  document.getElementById("alarmTimeSelector");
+
+// var alarmEvent = function()
+// {
+//     alarmTime = alarmTimeSelector.value;
+// };
+
+// alarmTimeSelector.addEventListener("change", wakeUpEvent);
