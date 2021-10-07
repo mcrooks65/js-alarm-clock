@@ -10,9 +10,17 @@
 
   header{
     font-size: 36px;
-    line-height: 64px;
+    line-height: 100px;
   }
   
+  blockquote {
+    font: 2em/1em 'Roboto', sans-serif;
+    -webkit-text-stroke: 1px black;
+    text-shadow: 2px 2px #000;
+    margin: 0px 0 20px 0;
+    color: rgb(0, 0, 0);
+  }
+
   #alarmHourSelector, #alarmMinuteSelector {
     padding: 1px 0;
   }
