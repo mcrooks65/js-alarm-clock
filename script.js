@@ -1,3 +1,8 @@
+var alarmHourSelector = document.getElementById("alarmHourSelector")
+var alarmMinuteSelector = document.getElementById("alarmMinuteSelector")
+var setAlarmButton = document.getElementById("setAlarmButton")
+
+var sound = new Audio("https://freesound.org/data/previews/316/316847_4939433-lq.mp3");
 
 var showCurrentTime = function()
 {
@@ -22,8 +27,19 @@ var showCurrentTime = function()
 
     clock.innerText = clockTime;
     // clock.innerText = currentTime.toUTCString();
+
+    var currentHour = currentTime.getHours();
+    var currentMinute = currentTime.getMinutes();
+    var checkTime = currentHour + ":" + currentMinute;
+    var alarmTime = alarmHourSelector.value + ":" + alarmMinuteSelector.value
+    if (checkTime === alarmTime) 
+    {
+        sound.play();
+    }
+
 }
 
+     
 var start = new Date();
     
 setInterval(function () {
@@ -32,18 +48,12 @@ setInterval(function () {
 
 document.onload = showCurrentTime();
 
-var alarmHourSelector = document.getElementById("alarmHourSelector")
-var alarmMinuteSelector = document.getElementById("alarmMinuteSelector")
-
-var setAlarmButton = document.getElementById("setAlarmButton")
-
 var setAlarmEvent = function()
 {
     var alarmTime = alarmHourSelector.value + ":" + alarmMinuteSelector.value
 
-    console.log(alarmTime)
-
     document.getElementById("alarmEvent").innerText = "The alarm is set for " + alarmTime
+
 };
 
 setAlarmButton.addEventListener("click", setAlarmEvent);
