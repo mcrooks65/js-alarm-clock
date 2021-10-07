@@ -32,13 +32,18 @@ setInterval(function () {
 
 document.onload = showCurrentTime();
 
+var alarmHourSelector = document.getElementById("alarmHourSelector")
+var alarmMinuteSelector = document.getElementById("alarmMinuteSelector")
 
-// // Alarm time selector
-// var alarmTimeSelector =  document.getElementById("alarmTimeSelector");
+var setAlarmButton = document.getElementById("setAlarmButton")
 
-// var alarmEvent = function()
-// {
-//     alarmTime = alarmTimeSelector.value;
-// };
+var setAlarmEvent = function()
+{
+    var alarmTime = alarmHourSelector.value + ":" + alarmMinuteSelector.value
 
-// alarmTimeSelector.addEventListener("change", wakeUpEvent);
+    console.log(alarmTime)
+
+    document.getElementById("alarmEvent").innerText = "The alarm is set for " + alarmTime
+};
+
+setAlarmButton.addEventListener("click", setAlarmEvent);
